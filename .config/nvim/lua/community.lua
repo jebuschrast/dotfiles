@@ -11,9 +11,9 @@ return {
   -- import/override with your plugins folder
   { import = "astrocommunity.pack.rust" },
   { import = "astrocommunity.colorscheme.nightfox-nvim", enabled = false },
-  { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = true },
+  { import = "astrocommunity.colorscheme.kanagawa-nvim", enabled = false},
   { import = "astrocommunity.colorscheme.rose-pine" },
-  { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
   { -- further customize the options set by the community
     "catppuccin",
     opts = {
