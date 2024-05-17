@@ -1,6 +1,6 @@
 # My Dotfiles
 
-This repository contains my personal dotfiles. Dotfiles are configuration files that are used to customize and tweak your system and software. i
+This repository contains my personal dotfiles. Dotfiles are configuration files that are used to customize and tweak your system and software.
 
 With this repo you will be able to bring up a new system with your personal configurations instantly. 
 The scripts automatically detect if the host machine is running Debian Linux or MacOS.
@@ -28,6 +28,12 @@ On macOS, you'll first need to install Homebrew if it isn't already installed, f
 
 brew install stow
 ```
+### NERD Fonts
+For optimal compatibility with themes and tools that utilize a wide range of glyphs (icons and special characters), it is recommended to install [**NERD Fonts**](https://www.nerdfonts.com/). NERD Fonts patches developer-targeted fonts with a high number of glyphs (icons). This ensures that icons and graphics in your terminal render correctly and enhance visual information.
+
+- To install NERD Fonts, visit their website: [NERD Fonts](https://www.nerdfonts.com/font-downloads) and select a font that fits your aesthetic and functional needs. Download and install it according to your operating system's procedure for adding new fonts.
+
+
 ## Setting up Dotfiles
 
 To set up the dotfiles, clone this repository to your $HOME directory and use GNU Stow to create the necessary symlinks:
@@ -66,7 +72,10 @@ The script will give you the option to install one script at a time if you want 
 - [**mosh**](https://mosh.org/) - Mobile shell that supports roaming and intermittent connectivity.
 - [**nvim**](https://neovim.io/) - Hyperextensible Vim-based text editor.
 - [**tmux**](https://github.com/tmux/tmux) - Terminal multiplexer for Unix-like operating systems.
-- [**zsh**](https://www.zsh.org/) - A powerful shell that operates as both an interactive shell and as a scripting language interpreter.
+- **zsh**
+  - [**zsh**](https://www.zsh.org/) - A powerful shell that operates as both an interactive shell and as a scripting language interpreter.i
+  - [**Oh My Zsh**](https://ohmyz.sh/) - An open-source, community-driven framework for managing your Zsh configuration with tons of plugins and themes.
+  - [**Zoxide**](https://github.com/ajeetdsouza/zoxide) - A fast alternative to `cd` that learns your habits, making it quicker to navigate directories.
 - **zsh plugins**
   - [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like fast/unobtrusive autosuggestions for Zsh.
   - [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting) - Provides syntax highlighting for the shell Zsh.
