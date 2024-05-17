@@ -76,10 +76,10 @@ The script will give you the option to install one script at a time if you want 
   - [**zsh**](https://www.zsh.org/) - A powerful shell that operates as both an interactive shell and as a scripting language interpreter.i
   - [**Oh My Zsh**](https://ohmyz.sh/) - An open-source, community-driven framework for managing your Zsh configuration with tons of plugins and themes.
   - [**Zoxide**](https://github.com/ajeetdsouza/zoxide) - A fast alternative to `cd` that learns your habits, making it quicker to navigate directories.
+  - [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k) - A fast and highly customizable theme for the Zsh shell. It provides prompt elements that help display various status indicators and system information quickly and beautifully. Powerlevel10k is designed to be fast, flexible, and easy to use, offering configurations that can transform the command prompt into a versatile tool for any workflow.
 - **zsh plugins**
   - [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like fast/unobtrusive autosuggestions for Zsh.
   - [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting) - Provides syntax highlighting for the shell Zsh.
-  - [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k) - A fast and highly customizable theme for the Zsh shell. It provides prompt elements that help display various status indicators and system information quickly and beautifully. Powerlevel10k is designed to be fast, flexible, and easy to use, offering configurations that can transform the command prompt into a versatile tool for any workflow.
 
 #### Optional Software
 - [**gnu_arm**](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm) - GNU Toolchain for the ARM processor architecture.
