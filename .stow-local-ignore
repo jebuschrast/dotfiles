@@ -1,0 +1,6 @@
+\.git
+\.sh
+scripts
+\.gitignore
+^/README.*
+^.*\.sh$
