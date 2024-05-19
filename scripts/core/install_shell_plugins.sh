@@ -24,7 +24,23 @@ clone_zsh_plugins() {
     fi
     echo "Zsh plugins cloned successfully."
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    
+    # clone you-should-use
+    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/you-should-use" ]; then
+        echo "Installing you-should-use..."
+        git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ~/.oh-my-zsh/custom/pplugins/you-should-use
+    else
+        echo "you-should-use is already installed."
+    fi
 
+    # clone zsh-bat
+    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-bat" ]; then
+        echo "Installing zsh-bat..."
+        git clone https://github.com/fdellwing/zsh-bat.git ~/.oh-my-zsh/custom/plugins/zsh-bat
+    else 
+        echo "zsh-bat is already installed."
+    fi
+    
 }
 
 # Check if Oh My Zsh is installed

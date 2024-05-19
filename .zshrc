@@ -82,6 +82,8 @@ plugins=(git
   zsh-autosuggestions
   zsh-syntax-highlighting
   docker
+  you-should-use
+  zsh-bat
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -111,6 +113,15 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# mosh fix
+fw='/usr/libexec/ApplicationFirewall/socketfilterfw'
+mosh_sym='/usr/local/bin/mosh-server'
+mosh_absn='/usr/local/Cellar/mosh/1.4.1_102/bin/mosh-server'
+"$fw" --add "$mosh_sym" > /dev/null 
+"$fw" --add "$mosh_abs" > /dev/null
+"$fw" --unblockapp "$mosh_sym" > /dev/null
+"$fw" --unblockapp "$mosh_abs" > /dev/null
 
 
 # yazi shortcut
