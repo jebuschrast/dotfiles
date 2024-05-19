@@ -18,21 +18,7 @@ case "$OS" in
         brew install stow git
 esac
 
-echo "If you are installing on an existing machine many of the config files need to be deleted in order to be reassociated with the ones being provided"
-echo "Would you like to delete the existing config files? (y/n)"
-read delete_choice
-if [ "$delete_choice" == "y" ]; then
-    echo "Deleting existing config files..."
-    sudo rm -rf ~/.zshrc
-    sudo rm -rf ~/.tmux.conf
-    sudo rm -rf ~/.p10k.zsh
-    sudo rm -rf ~/.config/nvim
-    sudo rm -rf ~/.config/yazi
-    echo "Existing config files deleted."
-fi
 
-echo "Using GNU stow to symlink the config files"
-stow . -vv
 
         
 # Check if the scripts base directory exists
@@ -98,3 +84,18 @@ fi
 
 echo "All selected scripts have been processed."
 
+echo "If you are installing on an existing machine many of the config files need to be deleted in order to be reassociated with the ones being provided"
+echo "Would you like to delete the existing config files? (y/n)"
+read delete_choice
+if [ "$delete_choice" == "y" ]; then
+    echo "Deleting existing config files..."
+    sudo rm -rf ~/.zshrc
+    sudo rm -rf ~/.tmux.conf
+    sudo rm -rf ~/.p10k.zsh
+    sudo rm -rf ~/.config/nvim
+    sudo rm -rf ~/.config/yazi
+    echo "Existing config files deleted."
+fi
+
+echo "Using GNU stow to symlink the config files"
+stow . -vv
