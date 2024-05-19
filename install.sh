@@ -33,6 +33,9 @@ if [ "$delete_choice" == "y" ]; then
     echo "Existing config files deleted."
 fi
 
+echo "Using GNU stow to symlink the config files"
+stow . -vv
+
         
 # Check if the scripts base directory exists
 if [ ! -d "$scripts_base_dir" ]; then
