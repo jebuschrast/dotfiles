@@ -25,6 +25,7 @@ if [ "$delete_choice" == "y" ]; then
     echo "Deleting existing config files..."
     sudo rm -rf ~/.zshrc
     sudo rm -rf ~/.tmux.conf
+    sudo rm -rf ~/.p10k.zsh
     sudo rm -rf ~/.config/nvim
     sudo rm -rf ~/.config/yazi
     echo "Existing config files deleted."
