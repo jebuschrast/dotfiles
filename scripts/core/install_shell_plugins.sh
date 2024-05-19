@@ -10,7 +10,7 @@ clone_zsh_plugins() {
     # Clone zsh-autosuggestions
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
         echo "Installing zsh-autosuggestions..."
-        git clone https://github.com/zsh-users/zsh-autosuggestions  ${ZSH_CUSTOM)/plugins/zsh-autosuggestions
+        git clone https://github.com/zsh-users/zsh-autosuggestions  ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
     else
         echo "zsh-autosuggestions is already installed."
     fi
@@ -18,17 +18,25 @@ clone_zsh_plugins() {
     # Clone zsh-syntax-highlighting
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
         echo "Installing zsh-syntax-highlighting..."
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM)/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
     else
         echo "zsh-syntax-highlighting is already installed."
     fi
     echo "Zsh plugins cloned successfully."
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
     
+    # clone powerlevel10k
+    if  [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+    
+        echo "Installing powerlevel10k..."
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    else
+        echo "powerlevel10k is already installed."
+    fi
+
     # clone you-should-use
     if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/you-should-use" ]; then
         echo "Installing you-should-use..."
-        git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM)/plugins/you-should-use
+        git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM}/plugins/you-should-use
     else
         echo "you-should-use is already installed."
     fi
