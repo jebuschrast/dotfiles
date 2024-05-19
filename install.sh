@@ -2,7 +2,38 @@
 
 # Define the base directory containing the scripts
 scripts_base_dir="./scripts"
+OS=$(uname -s)
+echo "Instaling OS specific prerequisites"
+case "$OS" in
+    Linux*)     echo "Linux"
+        sudo apt-get update
+        sudo apt get install openssh-server
+        sudo apt-get install stow
+        sudo apt-get install git
+        ;;
+    Darwin*)    echo "Mac"
+        if ! command -v brew &> /dev/null; then
+            echo "Homebrew is not installed. Installing Homebrew..."
+            /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+            echo "Homebrew installed."
+        fi
+        brew install stow
+        brew install git
+esac
 
+echo "If you are installing on an existing machine many of the config files need to be deleted in order to be reassociated with the ones being provided"
+echo "Would you like to delete the existing config files? (y/n)"
+read delete_choice
+if [ "$delete_choice" == "y" ]; then
+    echo "Deleting existing config files..."
+    sudo rm -rf ~/.zshrc
+    sudo rm -rf ~/.tmux.conf
+    sudo rm -rf ~/.config/nvim
+    sudo rm -rf ~/.config/yazi
+    echo "Existing config files deleted."
+fi
+
+        
 # Check if the scripts base directory exists
 if [ ! -d "$scripts_base_dir" ]; then
     echo "The base directory '$scripts_base_dir' does not exist."

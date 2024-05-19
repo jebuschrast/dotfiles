@@ -8,26 +8,6 @@ The scripts automatically detect if the host machine is running Debian Linux or 
 The configurations in this repository are managed using GNU Stow, a symlink farm manager, which facilitates the management of symbolic links to dotfiles across the system.
 
 
-## Installation
-
-Before setting up the dotfiles, you must install GNU Stow, which will be used to create symlinks to the configuration files in this repository.
-
-### Debian
-
-On Debian or any Debian-based distribution like Ubuntu, install GNU Stow using the package manager:
-
-```bash
-sudo apt-get install stow
-```
-### MacOS
-
-On macOS, you'll first need to install Homebrew if it isn't already installed, followed by GNU Stow lang-none -->
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-brew install stow
-```
 ### NERD Fonts
 For optimal compatibility with themes and tools that utilize a wide range of glyphs (icons and special characters), it is recommended to install [**NERD Fonts**](https://www.nerdfonts.com/). NERD Fonts patches developer-targeted fonts with a high number of glyphs (icons). This ensures that icons and graphics in your terminal render correctly and enhance visual information.
 
@@ -43,9 +23,7 @@ cd ~
 
 git clone git@github.com:jebuschrast/dotfiles.git
 
-cd dotfiles
 
-stow .
 ```
 
 This command will link the files and folders in the dotfiles repository to your home directory, effectively applying all the specified configurations
