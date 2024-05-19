@@ -4,6 +4,7 @@
 install_neovim_from_repo() {
     echo "Installing Neovim from repository..."
     sudo $1 install neovim -y
+    rm -rm neovim
     echo "Neovim installed successfully."
 }
 
@@ -17,6 +18,7 @@ build_neovim_from_source() {
     make CMAKE_BUILD_TYPE=RelWithDebInfo
     sudo make install
     cd ..
+    rm -rf neovim
     echo "Neovim built and installed from source successfully."
 }
 
