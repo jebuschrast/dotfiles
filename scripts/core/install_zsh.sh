@@ -16,12 +16,7 @@ install_oh_my_zsh() {
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
-# Function to install zoxide
-install_zoxide() {
-    echo "Installing zoxide..."
-    curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
-    echo "zoxide installed successfully."
-}
+
 
 # Detect OS and install packages accordingly
 OS="$(uname -s)"
@@ -33,7 +28,6 @@ case "$OS" in
                 install_zsh apt-get
                 install_oh_my_zsh
                 sudo apt-get install curl -y # Ensure curl is installed for Debian-based systems
-                install_zoxide apt-get
             else
                 echo "Zsh is already installed. Checking for Oh My Zsh and zoxide..."
                 [ ! -d "$HOME/.oh-my-zsh" ] && install_oh_my_zsh
@@ -49,8 +43,6 @@ case "$OS" in
             brew install zsh
             echo "Zsh installed successfully."
             install_oh_my_zsh
-            brew install zoxide
-            echo "zoxide installed successfully."
         else
             echo "Zsh is already installed. Checking for Oh My Zsh and zoxide..."
             [ ! -d "$HOME/.oh-my-zsh" ] && install_oh_my_zsh

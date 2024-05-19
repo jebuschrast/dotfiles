@@ -112,6 +112,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+
+# zoxide init
+eval "$(zoxide init zsh)"
 # yazi shortcut
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

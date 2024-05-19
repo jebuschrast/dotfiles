@@ -4,7 +4,7 @@
 install_packages_debian() {
     echo "Installing tmux, lsd, and mosh on Debian-based system..."
     sudo apt-get update
-    sudo apt-get install -y tmux lsd mosh
+    sudo apt-get install -y tmux lsd mosh zoxide
     echo "tmux, lsd, and mosh installed successfully on Debian."
 }
 
@@ -17,7 +17,7 @@ install_packages_macos() {
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo "Homebrew installed."
     fi
-    brew install tmux lsd mosh
+    brew install tmux lsd mosh zoxide
     echo "tmux, lsd, and mosh installed successfully on macOS."
 }
 
