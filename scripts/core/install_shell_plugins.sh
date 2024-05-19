@@ -22,6 +22,9 @@ clone_zsh_plugins() {
     else
         echo "zsh-syntax-highlighting is already installed."
     fi
+    echo "Zsh plugins cloned successfully."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
 }
 
 # Check if Oh My Zsh is installed
