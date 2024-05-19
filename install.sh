@@ -7,7 +7,7 @@ echo "Instaling OS specific prerequisites"
 case "$OS" in
     Linux*)     echo "Linux"
         sudo apt-get update
-        sudo apt get install stow git openssh-server
+        sudo apt-get install stow git openssh-server
         ;;
     Darwin*)    echo "Mac"
         if ! command -v brew &> /dev/null; then
