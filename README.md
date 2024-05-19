@@ -44,22 +44,26 @@ The script will give you the option to install one script at a time if you want 
 ### List of installed software.
 
 #### Core Software
-- [**clang**](https://clang.llvm.org/) - A language front-end for the LLVM compiler.
-- [**docker**](https://www.docker.com/) - Container platform for developing, shipping, and running applications.
-- [**gh**](https://cli.github.com/) - GitHub CLI to manage GitHub repositories.
-- [**mosh**](https://mosh.org/) - Mobile shell that supports roaming and intermittent connectivity.
 - [**nvim**](https://neovim.io/) - Hyperextensible Vim-based text editor.
-- [**tmux**](https://github.com/tmux/tmux) - Terminal multiplexer for Unix-like operating systems.
+- [**AstroNvim**](https://github.com/AstroNvim/AstroNvim) - A Neovim distribution that enhances the traditional Neovim experience with pre-configured plugins and settings, designed to simplify and accelerate development workflow.
+- **utilities**
+  - [**mosh**](https://mosh.org/) - Mobile shell that supports roaming and intermittent connectivity.
+  - [**tmux**](https://github.com/tmux/tmux) - Terminal multiplexer for Unix-like operating systems.
+  - [**Lazygit**](https://github.com/jesseduffield/lazygit) - A simple terminal UI for git commands, simplifying and streamlining git operations within a terminal.
+  - [**Zoxide**](https://github.com/ajeetdsouza/zoxide) - A fast alternative to `cd` that learns your habits, making it quicker to navigate directories.
+  - [**LSD (LSDeluxe)**](https://github.com/Peltoche/lsd) - A modern, feature-rich alternative to the classic `ls` command, enhancing directory listings with color, icons, and custom formatting.
 - **zsh**
   - [**zsh**](https://www.zsh.org/) - A powerful shell that operates as both an interactive shell and as a scripting language interpreter.i
   - [**Oh My Zsh**](https://ohmyz.sh/) - An open-source, community-driven framework for managing your Zsh configuration with tons of plugins and themes.
-  - [**Zoxide**](https://github.com/ajeetdsouza/zoxide) - A fast alternative to `cd` that learns your habits, making it quicker to navigate directories.
   - [**Powerlevel10k**](https://github.com/romkatv/powerlevel10k) - A fast and highly customizable theme for the Zsh shell. It provides prompt elements that help display various status indicators and system information quickly and beautifully. Powerlevel10k is designed to be fast, flexible, and easy to use, offering configurations that can transform the command prompt into a versatile tool for any workflow.
 - **zsh plugins**
   - [**zsh-autosuggestions**](https://github.com/zsh-users/zsh-autosuggestions) - Fish-like fast/unobtrusive autosuggestions for Zsh.
   - [**zsh-syntax-highlighting**](https://github.com/zsh-users/zsh-syntax-highlighting) - Provides syntax highlighting for the shell Zsh.
 
 #### Optional Software
+- [**docker**](https://www.docker.com/) - Container platform for developing, shipping, and running applications.
+- [**gh**](https://cli.github.com/) - GitHub CLI to manage GitHub repositories.
+- [**clang**](https://clang.llvm.org/) - A language front-end for the LLVM compiler.
 - [**gnu_arm**](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm) - GNU Toolchain for the ARM processor architecture.
 - [**gnu_radio**](https://www.gnuradio.org/) - Free & open-source toolkit for software radio.
 - [**nvm**](https://github.com/nvm-sh/nvm) - Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions.
