@@ -1,24 +1,24 @@
 #!/bin/bash
 
-# Function to install tmux on Debian-based systems
-install_tmux_debian() {
-    echo "Installing tmux on Debian-based system..."
+# Function to install tmux, lsd, and mosh on Debian-based systems
+install_packages_debian() {
+    echo "Installing tmux, lsd, and mosh on Debian-based system..."
     sudo apt-get update
-    sudo apt-get install -y tmux
-    echo "tmux installed successfully on Debian."
+    sudo apt-get install -y tmux lsd mosh
+    echo "tmux, lsd, and mosh installed successfully on Debian."
 }
 
-# Function to install tmux on macOS
-install_tmux_macos() {
-    echo "Installing tmux on macOS..."
+# Function to install tmux, lsd, and mosh on macOS
+install_packages_macos() {
+    echo "Installing tmux, lsd, and mosh on macOS..."
     # Check if Homebrew is installed
     if ! command -v brew &> /dev/null; then
         echo "Homebrew is not installed. Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo "Homebrew installed."
     fi
-    brew install tmux
-    echo "tmux installed successfully on macOS."
+    brew install tmux lsd mosh
+    echo "tmux, lsd, and mosh installed successfully on macOS."
 }
 
 # Detect OS and execute appropriate installation function
@@ -28,7 +28,7 @@ case "$OS" in
         if [[ -f /etc/os-release ]]; then
             . /etc/os-release
             if [ "$ID" = "debian" ] || [ "$ID_LIKE" = "debian" ]; then
-                install_tmux_debian
+                install_packages_debian
             else
                 echo "This script supports Debian-based systems. Unsupported distribution."
                 exit 1
@@ -39,7 +39,7 @@ case "$OS" in
         fi
         ;;
     Darwin)
-        install_tmux_macos
+        install_packages_macos
         ;;
     *)
         echo "Unsupported operating system."
