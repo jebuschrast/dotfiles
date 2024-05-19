@@ -7,9 +7,7 @@ echo "Instaling OS specific prerequisites"
 case "$OS" in
     Linux*)     echo "Linux"
         sudo apt-get update
-        sudo apt get install openssh-server
-        sudo apt-get install stow
-        sudo apt-get install git
+        sudo apt get install stow git openssh-server
         ;;
     Darwin*)    echo "Mac"
         if ! command -v brew &> /dev/null; then
@@ -17,8 +15,7 @@ case "$OS" in
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
             echo "Homebrew installed."
         fi
-        brew install stow
-        brew install git
+        brew install stow git
 esac
 
 echo "If you are installing on an existing machine many of the config files need to be deleted in order to be reassociated with the ones being provided"
