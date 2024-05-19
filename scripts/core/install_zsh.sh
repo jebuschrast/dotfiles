@@ -9,11 +9,12 @@ install_zsh() {
 
 # Function to install Oh My Zsh
 install_oh_my_zsh() {
+    echo "Installing P10k them"
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
     echo "Installing Oh My Zsh..."
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     echo "Oh My Zsh installed successfully."
-    echo "Installing P10k them"
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
 
