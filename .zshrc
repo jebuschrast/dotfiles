@@ -55,7 +55,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
+# Uncomment the following line if you want to disable marking untracked files e
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
@@ -76,7 +76,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+plugins=(
+	git
 	1password  
 	z
   zsh-autosuggestions
@@ -84,6 +85,8 @@ plugins=(git
   docker
   you-should-use
   zsh-bat
+  colored-man-pages
+  sudo
 )
 
 source $ZSH/oh-my-zsh.sh
