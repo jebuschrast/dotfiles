@@ -95,6 +95,11 @@ if [ "$delete_choice" == "y" ]; then
     sudo rm -rf ~/.config/nvim
     sudo rm -rf ~/.config/yazi
     echo "Existing config files deleted."
+
+    echo "Deleting nvim directories..."
+    sudo rm -rf ~/.local/share/nvim
+    sudo rm -rf ~/.local/state/nvim
+    sudo rm -rf ~/.cache/nvim ~/.cache/nvim.bak
 fi
 
 echo "Using GNU stow to symlink the config files"
