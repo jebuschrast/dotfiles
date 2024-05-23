@@ -24,6 +24,8 @@ return {
       },
     },
   },
+  { import = "astrocommunity.pack.rust" },
+  { import = "astrocommunity.colorscheme.nightfox-nvim", enabled = false },
   { import = "astrocommunity.colorscheme.catppuccin", enabled = true },
   { -- further customize the options set by the community
     "catppuccin",
@@ -42,5 +44,14 @@ return {
       },
     },
   },
-  { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
+
+  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
+  {
+    "m4xshen/smartcolumn.nvim",
+    opts = {
+      colorcolumn = 120,
+      disabled_filetypes = { "help" },
+    },
+  },
 }

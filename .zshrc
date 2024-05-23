@@ -152,3 +152,6 @@ alias lt='ls --tree'
 # export 
 export EDITOR='nvim'
 export VISUAL='nvim'
+
+# curl stuffextra_curl_params
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
