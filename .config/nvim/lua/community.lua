@@ -45,16 +45,9 @@ return {
     },
   },
 
-  -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
+  { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
   { import = "astrocommunity.bars-and-lines.lualine-nvim" },
   { import = "astrocommunity.bars-and-lines.scope.nvim" },
   { import = "astrocommunity.bars-and-lines.dropbar.nvim" },
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = 120,
-      disabled_filetypes = { "help" },
-    },
-  },
 }

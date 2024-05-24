@@ -17,6 +17,12 @@ install_oh_my_zsh() {
     echo "Oh My Zsh installed successfully."
 }
 
+# Function to install zoxide
+install_zoxide() {
+    echo "Installing zoxide..."
+    sudo $1 install zoxide -y
+    echo "zoxide installed successfully."
+}
 
 
 # Detect OS and install packages accordingly
@@ -26,8 +32,10 @@ case "$OS" in
         if [[ -f /etc/debian_version ]]; then
             # Debian, Ubuntu, and derivatives
             if ! command -v zsh &> /dev/null; then
-                install_zsh apt-get
                 install_oh_my_zsh
+                curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+                install_zsh apt-get
+
                 sudo apt-get install curl -y # Ensure curl is installed for Debian-based systems
             else
                 echo "Zsh is already installed. Checking for Oh My Zsh and zoxide..."
@@ -41,8 +49,9 @@ case "$OS" in
         ;;
     Darwin) # macOS
         if ! command -v zsh &> /dev/null; then
+            brew install zoxide
+            install_oh_my_zsh
             brew install zsh
-            echo "Zsh installed successfully."
             install_oh_my_zsh
         else
             echo "Zsh is already installed. Checking for Oh My Zsh and zoxide..."
