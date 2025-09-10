@@ -147,4 +147,30 @@ fi
 echo "Using GNU stow to symlink the config files"
 stow . -vv || { echo "Failed to create symlinks using stow"; exit 1; }
 
-echo "Installation complete! You may need to restart your terminal for all changes to take effect."
+# Set zsh as the default shell if it's installed
+if command -v zsh &> /dev/null; then
+    echo "Setting zsh as the default shell..."
+    ZSH_PATH=$(which zsh)
+    
+    # Check if zsh is already the default shell
+    if [ "$SHELL" != "$ZSH_PATH" ]; then
+        # Make sure zsh is in /etc/shells
+        if ! grep -q "^$ZSH_PATH$" /etc/shells; then
+            echo "$ZSH_PATH" | sudo tee -a /etc/shells > /dev/null
+        fi
+        
+        # Change the default shell
+        chsh -s "$ZSH_PATH" || {
+            echo "Failed to set zsh as default shell. You can do this manually with:"
+            echo "chsh -s $ZSH_PATH"
+        }
+        
+        echo "zsh is now your default shell!"
+    else
+        echo "zsh is already your default shell."
+    fi
+else
+    echo "zsh is not installed. Default shell unchanged."
+fi
+
+echo "Installation complete! Please restart your terminal for all changes to take effect."
