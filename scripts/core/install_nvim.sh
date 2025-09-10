@@ -2,6 +2,49 @@
 
 set -e  # Exit on error
 
+# Function to install AstroNvim
+install_astronvim() {
+    echo "Installing AstroNvim..."
+    
+    # Make a backup of current nvim config (if exists)
+    if [ -d "$HOME/.config/nvim" ]; then
+        echo "Making backup of existing nvim config..."
+        mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
+    fi
+    
+    # Clean neovim folders (Optional but recommended)
+    if [ -d "$HOME/.local/share/nvim" ]; then
+        echo "Backing up nvim share directory..."
+        mv "$HOME/.local/share/nvim" "$HOME/.local/share/nvim.bak"
+    fi
+    
+    if [ -d "$HOME/.local/state/nvim" ]; then
+        echo "Backing up nvim state directory..."
+        mv "$HOME/.local/state/nvim" "$HOME/.local/state/nvim.bak"
+    fi
+    
+    if [ -d "$HOME/.cache/nvim" ]; then
+        echo "Backing up nvim cache directory..."
+        mv "$HOME/.cache/nvim" "$HOME/.cache/nvim.bak"
+    fi
+    
+    # Clone the repository
+    echo "Cloning AstroNvim template..."
+    git clone --depth 1 https://github.com/AstroNvim/template "$HOME/.config/nvim" || {
+        echo "Failed to clone AstroNvim template"
+        return 1
+    }
+    
+    # Remove template's git connection
+    echo "Removing template's git connection..."
+    rm -rf "$HOME/.config/nvim/.git"
+    
+    echo "AstroNvim installed successfully!"
+    echo "Run 'nvim' to complete the setup."
+    
+    return 0
+}
+
 # Function to install Neovim from repository
 install_neovim_from_repo() {
     echo "Installing Neovim from repository..."
@@ -80,6 +123,13 @@ case "$OS" in
                 }
             else
                 echo "Neovim is already installed."
+                
+                # Ask if user wants to install AstroNvim
+                echo "Do you want to install AstroNvim? (y/n)"
+                read install_astro
+                if [ "$install_astro" = "y" ]; then
+                    install_astronvim
+                fi
             fi
         else
             echo "Unsupported Linux distribution. This script is configured to build Neovim from source only on Debian-based systems."
@@ -97,6 +147,13 @@ case "$OS" in
                 exit 1
             }
             echo "Neovim installed successfully."
+            
+            # Install AstroNvim
+            echo "Do you want to install AstroNvim? (y/n)"
+            read install_astro
+            if [ "$install_astro" = "y" ]; then
+                install_astronvim
+            fi
         else
             echo "Neovim is already installed."
         fi
