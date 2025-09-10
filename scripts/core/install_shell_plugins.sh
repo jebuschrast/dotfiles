@@ -1,53 +1,76 @@
 #!/bin/bash
 
+set -e  # Exit on error
+
+# Define ZSH_CUSTOM if not already defined
+ZSH_CUSTOM=${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}
+
 # Function to clone Zsh plugins
 clone_zsh_plugins() {
     echo "Cloning Zsh plugins..."
 
     # Ensure the custom plugins directory exists
-    mkdir -p ~/.oh-my-zsh/custom/plugins
+    mkdir -p "$ZSH_CUSTOM/plugins"
 
     # Clone zsh-autosuggestions
-    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions" ]; then
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
         echo "Installing zsh-autosuggestions..."
-        git clone https://github.com/zsh-users/zsh-autosuggestions  ${ZSH_CUSTOM}/plugins/zsh-autosuggestions
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" || {
+            echo "Failed to clone zsh-autosuggestions"
+            return 1
+        }
     else
         echo "zsh-autosuggestions is already installed."
     fi
 
     # Clone zsh-syntax-highlighting
-    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting" ]; then
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
         echo "Installing zsh-syntax-highlighting..."
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM}/plugins/zsh-syntax-highlighting
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" || {
+            echo "Failed to clone zsh-syntax-highlighting"
+            return 1
+        }
     else
         echo "zsh-syntax-highlighting is already installed."
     fi
-    echo "Zsh plugins cloned successfully."
     
-    # clone powerlevel10k
-    if  [ ! -d "$HOME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+    # Create themes directory if it doesn't exist
+    mkdir -p "$ZSH_CUSTOM/themes"
     
+    # Clone powerlevel10k
+    if  [ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]; then
         echo "Installing powerlevel10k..."
-        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+        git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k" || {
+            echo "Failed to clone powerlevel10k"
+            return 1
+        }
     else
         echo "powerlevel10k is already installed."
     fi
 
-    # clone you-should-use
-    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/you-should-use" ]; then
+    # Clone you-should-use
+    if [ ! -d "$ZSH_CUSTOM/plugins/you-should-use" ]; then
         echo "Installing you-should-use..."
-        git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM}/plugins/you-should-use
+        git clone https://github.com/MichaelAquilina/zsh-you-should-use.git "$ZSH_CUSTOM/plugins/you-should-use" || {
+            echo "Failed to clone you-should-use"
+            return 1
+        }
     else
         echo "you-should-use is already installed."
     fi
 
-    # clone zsh-bat
-    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/zsh-bat" ]; then
+    # Clone zsh-bat
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-bat" ]; then
         echo "Installing zsh-bat..."
-        git clone https://github.com/fdellwing/zsh-bat.git ~/.oh-my-zsh/custom/plugins/zsh-bat
+        git clone https://github.com/fdellwing/zsh-bat.git "$ZSH_CUSTOM/plugins/zsh-bat" || {
+            echo "Failed to clone zsh-bat"
+            return 1
+        }
     else 
         echo "zsh-bat is already installed."
     fi
+    
+    echo "Zsh plugins cloned successfully."
     
 }
 
