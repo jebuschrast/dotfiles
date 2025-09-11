@@ -63,33 +63,76 @@ process_scripts() {
     echo "Would you like to execute all scripts automatically without individual confirmation? (y/n)"
     read auto_exec
 
-    # Loop through all the .sh files in the specified scripts directory
-    for script in "${scripts[@]}"; do
-        echo "Processing script: $script"
+    # For core scripts, ensure a specific order
+    if [[ "$scripts_dir" == "$scripts_base_dir/core" ]]; then
+        # Define the specific order for core scripts
+        ordered_scripts=(
+            "$scripts_dir/install_zsh.sh"
+            "$scripts_dir/install_shell_plugins.sh"
+            "$scripts_dir/install_nvim.sh"
+            "$scripts_dir/install_core_utilities.sh"
+        )
+        
+        # Process scripts in the defined order
+        for script in "${ordered_scripts[@]}"; do
+            if [[ -f "$script" ]]; then
+                echo "Processing script: $script"
 
-        # User decides for each script if the mode is not automatic
-        if [ "$auto_exec" != "y" ]; then
-            echo "Do you want to execute this script? (y/n)"
-            read exec_choice
-            if [ "$exec_choice" != "y" ]; then
-                echo "Skipping: $script"
-                continue
+                # User decides for each script if the mode is not automatic
+                if [ "$auto_exec" != "y" ]; then
+                    echo "Do you want to execute this script? (y/n)"
+                    read exec_choice
+                    if [ "$exec_choice" != "y" ]; then
+                        echo "Skipping: $script"
+                        continue
+                    fi
+                fi
+
+                # Make sure the script is executable
+                chmod +x "$script"
+
+                # Execute the script and capture return code
+                echo "Running: $script"
+                "$script"
+                exit_code=$?
+                if [ $exit_code -ne 0 ]; then
+                    echo "Warning: Script $script exited with code $exit_code"
+                else
+                    echo "Successfully executed: $script"
+                fi
+            else
+                echo "Warning: Required script $script not found."
             fi
-        fi
+        done
+    else
+        # For non-core scripts, use the original loop
+        for script in "${scripts[@]}"; do
+            echo "Processing script: $script"
 
-        # Make sure the script is executable
-        chmod +x "$script"
+            # User decides for each script if the mode is not automatic
+            if [ "$auto_exec" != "y" ]; then
+                echo "Do you want to execute this script? (y/n)"
+                read exec_choice
+                if [ "$exec_choice" != "y" ]; then
+                    echo "Skipping: $script"
+                    continue
+                fi
+            fi
 
-        # Execute the script and capture return code
-        echo "Running: $script"
-        "$script"
-        exit_code=$?
-        if [ $exit_code -ne 0 ]; then
-            echo "Warning: Script $script exited with code $exit_code"
-        else
-            echo "Successfully executed: $script"
-        fi
-    done
+            # Make sure the script is executable
+            chmod +x "$script"
+
+            # Execute the script and capture return code
+            echo "Running: $script"
+            "$script"
+            exit_code=$?
+            if [ $exit_code -ne 0 ]; then
+                echo "Warning: Script $script exited with code $exit_code"
+            else
+                echo "Successfully executed: $script"
+            fi
+        done
+    fi
 }
 
 # Decide which directories to process based on user input
