@@ -28,40 +28,6 @@ install_oh_my_zsh() {
         return 1
     }
     echo "powerlevel10k theme installed successfully."
-    
-    # Install additional ZSH plugins
-    echo "Installing ZSH plugins..."
-    
-    # zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions || {
-        echo "Failed to install zsh-autosuggestions plugin"
-        return 1
-    }
-    
-    # zsh-syntax-highlighting
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting || {
-        echo "Failed to install zsh-syntax-highlighting plugin"
-        return 1
-    }
-    
-    # you-should-use
-    git clone https://github.com/MichaelAquilina/zsh-you-should-use.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/you-should-use || {
-        echo "Failed to install you-should-use plugin"
-        return 1
-    }
-    
-    # zsh-bat
-    git clone https://github.com/fdellwing/zsh-bat.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-bat || {
-        echo "Failed to install zsh-bat plugin"
-        return 1
-    }
-    
-    # zsh-ai
-    git clone https://github.com/zthxxx/zsh-history-enquirer.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-ai || {
-        echo "Warning: Failed to install zsh-ai plugin - this may not be available in repositories"
-    }
-    
-    echo "ZSH plugins installed successfully."
 }
 
 # Function to install zoxide

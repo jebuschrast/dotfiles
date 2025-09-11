@@ -30,6 +30,7 @@ clone_zsh_plugins() {
             echo "Failed to clone zsh-syntax-highlighting"
             return 1
         }
+        echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
     else
         echo "zsh-syntax-highlighting is already installed."
     fi
